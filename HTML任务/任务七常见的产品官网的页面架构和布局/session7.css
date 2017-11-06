@@ -1,0 +1,374 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+nav{
+	width: 100%;
+	height: 55px;
+}
+.navigation{
+	width: 1170px;
+	height: 55px;
+	margin: 0 auto;
+}
+.navigation h3{
+	margin: 0 50px;
+	line-height: 55px;
+}
+.navigation .left{
+	float: left;
+}
+.navigation i.book{
+	display: inline-block;
+	background: url(image/mission7_sprit.png) no-repeat;
+	width: 31px;
+	height: 31px;
+	background-position: 0 -46px;
+	vertical-align: middle;
+}
+.navigation ul{
+	float: right;
+	margin-right: 80px;
+}
+.navigation ul li{
+	display: inline;
+	line-height: 55px;
+}
+.navigation li a{
+	color: #000000;
+	margin: 0 16px;
+	width: 130px;
+}
+.navigation i.login{
+	display: inline-block;
+	background: url(image/mission7_sprit.png) no-repeat;
+	background-position: -39px -60px;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+.bg .imgbox{
+	width: 1280px;
+	margin: 0 30px;
+	position: relative;
+}
+.bg .imgbox .bg_btn{
+	display: block;
+	width: 331px;
+	height: 65px;
+	background-color: red;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+	line-height:65px ;
+	position: absolute;
+	top: 450px;
+	left: 122px;
+	opacity: 0.6;
+}
+.bg_foot{
+	width: 100%;
+	min-width: 1170px;
+	height: 250px;
+}
+.bg_foot .bg_content{
+	width: 1170px;
+	height: 250px;
+	margin: 0 auto;
+}
+
+.bg_content i{
+	display: block;
+	width: 42px;
+	height: 42px;
+	background: url(image/mission7_sprit.png) no-repeat;
+	background-position: 0 0;
+	margin-left: 46%;
+	
+}
+.bg_content ul>li+li i{
+	background-position: -87px 0;
+}
+.bg_content ul>li+li+li i{
+	background-position: -126px 0;
+}
+.bg_content ul>li+li+li+li i{
+	background-position: -42px 0;
+}
+.bg_content ul{
+	height: 250px;
+	text-align: center;
+	margin: 50px;
+}
+.bg_content ul li{
+	float: left;
+	width: 24%;
+	text-align: center;
+	border-left: 2px solid #aaa;
+}
+.bg_content ul .firstLi{
+	border-left: none;
+}
+.bg_content ul li span{
+	position: absolute;
+	font-size: 14px;
+	color: #767677;
+	margin-left: -59px;
+	padding-top: 20px;
+}
+.gray{
+	width: 100%;
+	min-width: 1280px;
+	background: #EDECEC;
+}
+.gray .gray_content{
+	width: 1170px;
+	height: 350px;
+	position: relative;
+}
+.gray_content i{
+	display: block;
+	width: 95px;
+	height: 90px;
+	background: url(image/mission7_sprit.png) no-repeat;
+	background-position: 0 -82px;
+	position: absolute;
+	top: 50%;
+	margin-top:-95px ;
+	margin-left: 600px;
+}
+.gray_content h3{
+	font: normal 54px '黑体';
+    opacity: 0.5;
+    position: absolute;
+    bottom: 86px;
+    margin-left: 230px;
+}
+.newCity{
+	width: 1280px;
+	height: 350px;
+}
+.newCity .map{
+	width: 100%;
+	min-width: 1170px;
+	height: 350px;
+	margin: 0 20px;
+	position: relative;
+}
+.map .choose{
+	position: absolute;
+	height: 50px;
+	top: 50%;
+	margin-top: -25px;
+	width: 100%;
+	text-align: center;
+}
+.choose select{
+	width: 200px;
+	height: 30px;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: url(image/1.png) no-repeat;
+	background-position: right center;
+	background-color: white;
+	margin-right: 15px;
+	opacity: 0.9;
+}
+.choose option{
+	height: 30px;
+	padding-left: 15px;
+}
+.choose input{
+	width: 200px;
+	height: 30px;
+	background: lightcoral;
+}
+.activity{
+	width: 100%;
+	
+}
+.actImg{
+	width: 100%;
+	height: 500px;
+}
+.actImg div{
+	float: left;
+	width: 200px;
+	height: 300px;
+	margin-left: 80px;
+	margin-top: 100px;
+	text-align: center;
+	box-sizing:content-box;
+}
+.actImg .one{
+	background:url(image/mission7_avtivity.png) no-repeat ;
+	background-position: 0 0;
+}
+.actImg .two{
+	margin-top: 140px;
+	background:url(image/mission7_avtivity.png) no-repeat ;
+	background-position: 0 -318px;
+}
+.actImg .three{
+	background:url(image/mission7_avtivity.png) no-repeat ;
+	background-position: 0 -650px;
+}
+.actImg .four{
+	background:url(image/mission7_avtivity.png) no-repeat ;
+	background-position: 0 -1000px;
+}
+.actImg div h4{
+	margin-top: -50px;
+	
+}
+.actImg div.two h4{
+	margin-top: 310px;
+}
+.newWorld{
+	width: 100%;
+	margin-top: 30px;
+	height: 600px;
+}
+.newWorld .img1{
+	width: 700px;
+	float: left;
+}
+.content1{
+	width:480px;
+	float: left;
+	margin-left: 150px;
+	height: 500px;
+	text-align: center;
+	position: relative;
+}
+.content1 .conbox{
+	width:200px;
+	height: 300px;
+	position: absolute;
+	margin-top: 100px;
+	margin-left: 150px;
+	opacity: 0.6;
+}
+.conbox h2 span{
+	color: red;
+}
+.conbox a{
+	display: inline-block;
+	width:110px;
+	height: 20px;
+	border: 1px solid red;
+	color: red;
+	text-align: center;
+	padding: 5px;
+	margin-top: 10px;
+}
+.conbox ul{
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+.conbox ul li{
+	width: 10px;
+	height: 10px;
+	border: 1px solid gray;
+	float: left;
+	border-radius: 50%;
+	margin: 8px;
+}
+.newTime,.apply {
+	width: 1280px;
+	height:370px;
+	margin-left: 20px;
+	opacity: 0.7;
+}
+.newTime>div{
+	width:33%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	color: white;
+	line-height: 30px;
+	font-size: 24px;
+}
+.newTime .box1{
+	padding-top: 150px;
+	background-color: red;
+}
+.newTime .box2{
+	padding-top: 150px;
+	color: black;
+}
+.newTime a{
+	display: inline-block;
+	width:150px;
+	height: 30px;
+	border: 1px solid red;
+	color: red;
+	text-align: center;
+	padding: 5px;
+	margin-top: 10px;
+}
+.newTime .box1 a{
+	color: white;
+	border: 1px solid #FFFFFF;
+}
+.apply{
+	width: 1280px;
+	height: 600px;
+	margin-top: 150px;
+	-webkit-box-sizing: padding-box;
+}
+.apply .top1{
+	width: 100%;
+	height: 150px;
+	text-align: center;
+	padding-top: 80px;
+}
+.apply .top1 p{
+	color: darkgray;
+}
+.apply .left1{
+	width: 45%;
+	height: 300px;
+	float: left;
+	padding: 20px;
+}
+.apply .right1{
+	width: 45%;
+	height: 300px;
+	float: right;
+	padding: 20px;
+}
+.right1 input{
+	width:200px;
+	height: 40px;
+	margin-left: 30px;
+	margin-top: 30px;
+	padding-left: 10px;
+	background: lightgrey;
+}
+.right1 textarea{
+	margin-top: 10px;
+	margin-left: 30px;
+	background: lightgrey;
+}
+footer{
+	width: 100%;
+	height: 300px;
+	background: gray;
+}
+footer .foot{
+	text-align: center;
+	padding: 150px;
+}
+
