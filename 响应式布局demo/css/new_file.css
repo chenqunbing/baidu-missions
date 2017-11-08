@@ -1,0 +1,170 @@
+*{
+	margin: 0;
+	padding: 0;
+	
+}
+li{
+	list-style: none;
+}
+header,section,footer,aside,nav,main,article,figure{
+	display: block;
+}
+body{
+	background: #000;
+	font: normal 14px/2 "微软雅黑";
+	padding-top: 20px;
+	color: #464646;
+}
+body header{
+	width: 980px;
+	margin: 0 auto;
+}
+header .name{
+	font: bold 36px/48px arial,helvetica,sans-serif;
+	color: #F90;
+}
+header nav{
+	height: 50px;
+	background: #663;
+	text-align: center;
+	border-radius: 5px;
+}
+
+header nav ul li{
+	display: inline-block;
+	width:200px;
+	color: white;
+	height: 50px;
+	line-height: 50px;
+}
+.container{
+	width:980px;
+	margin: 12px auto;
+	overflow: hidden;/*清除浮动带来的父亲宽度的塌陷问题*/
+}
+.container article{
+	width: 700px;
+	background: #FFFFFF;
+	float: left;
+	padding: 0 12px;
+	border-radius: 5px;
+}
+.container article h1{
+	line-height: 48px;
+}
+.container figure img{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+.container article section{
+	padding: 20px;
+}
+.container article section p{
+	font-size: 12px;
+	text-indent: 2em;
+}
+.container aside{
+	width: 240px;
+	float: right;
+}
+.container aside article{
+	width: 220px;
+	font-size: 12px;
+	margin-bottom: 12px;
+	padding: 10px;
+}
+.container aside article h1{
+	font: bold 14px/28px "微软雅黑";
+	border-bottom:  1px solid #eee;
+}
+.container aside article .imgList{
+	font-size: 0;
+}
+.container aside article .imgList li{
+	display: inline-block;
+	display: inline;
+	zoom: 1;
+	border: 1px solid #EEEEEE;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+.container aside article img{
+	width: 20%;
+	height: auto;
+	margin: 2px;
+	
+}
+footer{
+	width: 980px;
+	height: 36px;
+	background: #669;
+	margin: 12px auto;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	font: 12px/36px "微软雅黑";
+}
+
+@media screen and (max-width:980px ) {
+	body header{
+		width: 100%;
+		
+	}
+	header .name{
+		text-align: center;
+	}
+	header nav{
+		width: 100%;
+		background: none;
+		height: auto;
+	}
+	header nav ul li{
+		display: inline-block;
+		height: 30px;
+		background: #663;
+		line-height: 30px;
+		border-radius: 5px;
+		margin: 3px 0;
+		width:20%;
+	}
+	.container{
+		width: 100%;
+	}
+	
+	.container article{
+		width: 100%;
+	}
+	.container article h1{
+		width: 95%;
+		margin: 0 auto;
+	}
+	.container article figure{
+		width: 95%;
+		margin: 0 auto;
+	}
+	.container aside{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.container aside article{
+		width: 100%;
+	}
+	footer{
+		width: 100%;
+		height: auto;
+	}
+	footer em{
+		display: inline-block;
+		width: 95%;
+		margin: 0 auto;
+		border-bottom: 1px dotted #789;
+		font: 12px;
+	}
+	
+	
+}
+
+
+
+
