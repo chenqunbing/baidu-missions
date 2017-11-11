@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 100%;
+				list-style: none;
+				display: flex;
+			}
+			ul li{
+				height: 200px;
+				border: 1px solid #000;
+				flex: auto;
+			}
+			@media only screen and (max-width: 600px) {
+				ul{
+					flex-wrap: wrap;
+				}
+				ul li{
+					width: 100%;
+					flex: inherit;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>aaa</li>
+			<li>aaa</li>
+			<li>aaa</li>
+			<li>aaa</li>
+		</ul>
+	</body>
+</html>

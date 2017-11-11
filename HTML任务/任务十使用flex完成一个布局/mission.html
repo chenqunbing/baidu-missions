@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.container{
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.container div{
+				width: 150px;
+				border: 1px solid #f00;
+				margin: auto;
+				padding: 20px;
+				
+			}
+			.container div:nth-of-type(1){
+				height: 120px;
+			}
+			.container div:nth-of-type(2){
+				height: 100px;
+			}
+			.container div:nth-of-type(3){
+				height: 40px;
+			}
+			.container div:nth-of-type(4){
+				height: 200px;
+				border: 1px solid #0f0;
+			}
+			@media only screen and (max-width: 640px) {
+				.container div:nth-of-type(4){
+					order: -1;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+</html>

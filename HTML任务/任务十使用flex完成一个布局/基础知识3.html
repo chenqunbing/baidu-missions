@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.main{
+				width: 200px; /*如果不设置这个宽,那么这个红色的背景会占据一整行，设置了就会显示宽度为200的盒子为红色*/
+				background: red;
+				display: flex;   /*将对象作为弹性伸缩盒显示*/
+			}
+			/*.main{
+				background: red;
+				display: inline-flex;  将对象作为内联块级弹性伸缩盒显示
+				                        这里不设置width，盒子的width和height会根据内容元素的大小来显示
+			}*/
+			.main>div{
+				width: 50px;
+				height: 50px;
+				border: 1px solid blue;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="main">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,311 @@
+body{
+	margin: 0;
+	padding: 0;
+	min-width: 1280px;
+}
+input{
+	border: none;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+p{
+	margin: 0;
+}
+header{
+	height: 55px;
+	background: url(image/top-bg.gif) repeat-x;
+	overflow: hidden;
+}
+header .logo{
+	float: left;
+	margin: 8px 35px;
+	width: 50px;
+	height: 50px;
+	background: url(image/logo.gif) no-repeat;
+}
+header .login{
+	float: right;
+	width: 50px;
+	position: relative;
+	margin-right: 90px;
+	line-height: 55px;
+}
+header .login i{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: url(image/logo-r.gif) no-repeat;
+	top: 20px;
+	left: -20px;
+}
+header .login a{
+	color: white;
+}
+header .search{
+	float: right;
+	position: relative;
+	padding-right: 100px;
+	margin-top: 14px;
+}
+header .search .icon-search{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 20px;
+	height: 20px;
+	background: url(image/search.gif) no-repeat;
+}
+header .search input{
+	color: #eee;
+	width: 270px;
+	height: 25px;
+	padding-left: 40px;
+	border-radius: 10px;
+	outline: none;
+}
+
+aside{
+	float: left;
+	width: 260px;
+	height: 1200px;
+	background: url(image/aside-bg.gif) repeat-y;
+	color:#2380b1 ;
+}
+aside .user{
+	color: #bebebe;
+	position: relative;
+	overflow: hidden;
+}
+aside .user .userlogo{
+	float: left;
+	width: 60px;
+	height: 60px;
+	margin: 20px 35px;
+	
+}
+aside .user a{
+	float: right;
+	margin: 40px;
+	color: #bebebe;
+}
+aside .user .collection{
+	float: left;
+	border-right: 2px solid #444a65;
+    padding-right: 55px;
+}
+aside .user .fans{
+	float: right;
+	margin-right: 35px;
+}
+aside .column li{
+	line-height: 35px;
+}
+aside .column a{
+	color: #BEBEBE;
+}
+.container{
+	overflow: hidden;
+	background: #eeeeed;
+	height: 1200px;
+}
+.container .nav{
+	
+	background: #FFFFFF;
+	margin-bottom: 20px;
+}
+.container .nav p{
+	line-height: 30px;
+	font-size: 14px;
+    padding-left: 40px;
+}
+.container .main{
+	width: 980px;
+	margin: 0 auto;
+}
+.container .main>div{
+	/*background: #FFFFFF;*/
+	/*height: 40px;*/
+	margin-bottom: 20px;
+}
+.main label{
+	font-size: 14px;
+	color: #b7b7b7;
+}
+.container .main .partone{
+	background: #FFFFFF;
+	position: relative;
+	height: 84px;
+}
+.container .main .partone select{
+	width: 100px;
+	height: 30px;
+}
+.container .main .partone .serch-items{
+	position: absolute;
+	padding: 15px;
+	top: 0;
+	left: 0;
+}
+.container .main .partone .buy{
+	position: absolute;
+	padding: 15px;
+	top: 0;
+	left:180px;
+}
+.container .main .partone .sell{
+	position: absolute;
+	padding: 15px;
+	top: 35px;
+	left:180px;
+}
+.container .main .partone .date{
+	position: absolute;
+	padding: 15px;
+	top: 0px;
+	left:350px;
+}
+.container .main .partone .number{
+	position: absolute;
+	padding: 15px;
+	top: 35px;
+	left:350px;
+}
+.container .main .partone .run-time{
+	position: absolute;
+	padding: 15px;
+	top:0px;
+	left:540px;
+}
+.container .main .partone .agree{
+	position: absolute;
+	padding: 15px;
+	top: 35px;
+	left:540px;
+}
+.container .main .partone input{
+	position: absolute;
+	padding: 15px;
+	top: 20px;
+	right:200px;
+	background: blue;
+	border-radius: 8px;
+}
+.container .main .parttwo{
+	position: relative;
+	height: 63px;
+}
+.container .main .parttwo>div{
+	background: #FFFFFF;
+	width: 109px;
+	height: 59px;
+	float: left;
+	margin: 0 8px;
+	text-align: center;
+}
+.container .main .parttwo .lt,
+.container .main .parttwo .gt{
+	width: 29px;
+	height: 63px;
+	font-size: 24px;
+}
+.container .main .parttwo .lt a,
+.container .main .parttwo .gt a{
+	line-height: 59px;
+	color: #676767;
+}
+.container .main .parttwo .history{
+	height: 63px;
+	width: 130px;
+	background: url(image/history.gif) no-repeat;
+	background-color: #FFFFFF;
+	margin: 0 0 0 10px;
+	background-position: 10px;
+}
+.container .main .parttwo .history a{
+	font-size: 14px;
+    color: blueviolet;
+    line-height: 59px;
+    position: absolute;
+    right: 16px;
+}
+.container .main .partthree .box{
+	height: 69px;
+}
+
+.container .main .partthree .box div{
+	width: 202px;
+    height: 69px;
+    background: #FFFFFF;
+    float: left;
+    margin-right: 50px;
+    margin-top: 10px;
+    position: relative;
+    border-left: 5px solid red;
+}
+.container .main .partthree .box div:nth-of-type(4){
+	margin-right: 0;
+}
+.container .main .partthree .box div div{
+	width: 60px;
+    height: 45px;
+    background: greenyellow;
+    position: absolute;
+    right: -23px;
+    top: 0px;
+    border-left: none;
+}
+.container .main .partthree .box span{
+	display: block;
+    padding-left: 10px;
+    padding-top: 6px;
+}
+.container .main .partfour{
+	height: 355px;
+	/*background: #FFFFFF;*/
+	margin-bottom: 20px;
+	margin-top: 40px;
+}
+.container .main .partfour .l-part{
+	float: left;
+	width: 530px;
+	height: 355px;
+	border: 3px solid #bababa;
+	border-radius: 10px;
+	background: #FFFFFF;
+}
+.container .main .partfour .l-part h4{
+	line-height: 10px;
+    padding-left: 10px;
+    color: gray;
+    font-size: 15px;
+}
+.container .main .partfour .l-part .tableform ul li{
+	display: inline-block;
+}
+.container .main .partfour .r-part{
+	float: right;
+	background: yellow;
+	width: 350px;
+	height: 355px;
+	border: 3px solid #bababa;
+	border-radius: 10px;
+	background: #FFFFFF;
+	
+}
+.container .main .partfive{
+	
+}
+
+
+
+
+
+
+
+
+
+

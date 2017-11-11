@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				text-align: center;
+			}
+			.wrapper{
+				overflow: hidden;
+				width: 450px;
+				margin: 30px;
+				border: 1px solid red;
+			}
+			.big-box{
+				width: 120px;
+				height: 120px;
+				margin: 20px;
+				background: blue;
+				color: black;
+			}
+			.middle-box{
+				width: 100px;
+				height: 100px;
+				margin: 20px;
+				background: #99c;
+			}
+			.small-box{
+				width: 50px;
+				height: 50px;
+				margin: 10px;
+				background: #f00;
+			}
+			.fL{
+				float: left;
+			}
+			.red{
+				background: red;
+			}
+			.clear{
+				clear: both;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--<div class="wrapper">
+			<div class="big-box">none-float</div>
+			<div class="middle-box">
+				<div class="small-box"></div>
+				float:left
+			</div>
+		</div>-->
+		
+		<!--这里想证明的是浮动元素脱离了当前的BFC（块级格式上下文），并不影响它后面的兄弟元素
+			从这个案例中可以看出，上面蓝色的盒子的margin-bottom和下面的红色盒子的margin-top进行了重叠
+		-->
+		
+		<div class="wrapper">
+			<div class="big-box">none-float</div>
+			<div class="middle-box fL">float:left</div>
+			<div class="middle-box red">non-clear</div>
+		</div>
+		
+		<!--clear的强大作用
+			当浮动元素之后的元素设置clear的时候以闭合相关方向的浮动时，根据W3C的规定，闭合的元素会在margin-top
+			的上面产生一定的间隙，该间隙会阻止margin-top的折叠。
+		-->
+		<div class="wrapper">
+			<div class="big-box">none-float</div>
+			<div class="middle-box fL">float:left</div>
+			<div class="middle-box red clear">non-clear</div>
+		</div>
+	</body>
+</html>

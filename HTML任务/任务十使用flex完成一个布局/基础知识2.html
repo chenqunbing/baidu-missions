@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			.container{
+				height: 400px;
+				background: blue;
+				display: flex;
+				flex-direction: row; 
+				/*这个主要用来创建主轴,从而定义了伸缩项目在伸缩容器的方向
+				flex-direction: row||row-reverse||column||column-reverse;*/
+				flex-wrap: wrap;
+				flex-wrap: wrap||nowrap||wrap-reverse;
+				/*flex-flow: row wrap;
+				flex-flow:'<flex-direction>'||'<flex-wrap>' ;这个属性就是两个属性的缩写,
+				默认值是row,nowrap;*/
+				justify-content: space-around;
+				/*justify-content: flex-start||flex-end||center||space-around||space-between;*/
+				/*align-content:  flex-start || flex-end || center || space-between || space-around || stretch;
+				align-items: flex-end||flex-start||center||space-around||space-brtween||stretch;*/
+				
+			}
+			.item{
+				width: 200px;
+				height: 150px;
+				background: red;
+				color: white;
+				line-height: 150px;
+				font-size: 3em;
+				font-weight: bold;
+				margin-top: 10px;
+				text-align: center;
+				padding: 10px;
+			}
+			.item1{
+				order: 0;
+				align-self: center;
+				flex-flow: 2; /*“flex-grow”值为“2”，那么这个伸缩项目所占的剩余空间是其他伸缩项目所占剩余空间的两倍*/
+			}
+			.item2{
+				order: -1;
+			}
+			.item3{
+				order: 1;
+			}
+			.item4{
+				order: 2;
+			}
+			/*align-self: auto | flex-start | flex-end | center | baseline | stretch;
+				这个align-self属性用来在单独的伸缩项目上覆写默认的对齐方式*/
+			/*order:<Iteger>,当容器中有多个项目的时候,默认的情况是按照文档dom元素的书写的顺序进行排列,
+			order属性用于更改在主轴上的位置,order的值越小,越靠近左边,默认为0,可以为负值*/
+		</style>
+	</head>
+	<body>
+		<ul class="container">
+			<li class="item item1">1</li>
+			<li class="item item2">2</li>
+			<li class="item item3">3</li>
+			<li class="item item4">4</li>
+			<li class="item">5</li>
+			<li class="item">6</li>
+		</ul>
+	</body>
+</html>
