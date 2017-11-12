@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			header,section,footer{
+				border: 10px solid #333333;
+				font-family: georgia;
+				font-size: 40px;
+				text-align: center;
+				margin: 0 auto;
+				margin: 10px;
+			}
+			.doc{
+				width: 80%;
+				margin: 0 auto;
+				min-width: 600px;
+				height: 100%;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+			}
+			.doc header,.doc footer{
+				min-height: 100px;
+				-webkit-box-flex: 1;
+			}
+			.doc .content{
+				min-height: 400px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+			}
+			.doc .section1{
+				width: 200px;
+				/*-webkit-box-flex: 1;*/
+			}
+			.doc .section2{
+				-webkit-box-flex: 3;
+			}
+			.doc .section3{
+				-webkit-box-flex: 1;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="doc">
+			<header>Header</header>
+			<div class="content">
+				<section class="section1">固定宽度</section>
+				<section class="section2">比例3</section>
+				<section class="section3">比例1</section>
+			</div>
+			<footer>footer</footer>
+		</div>
+	</body>
+</html>

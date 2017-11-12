@@ -1,0 +1,174 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*使用无衬线字体*/
+html body {
+	background: #F5F5F5;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+/*设置全局css样式,避免图中的长按弹出菜单与选中文本的行为*/
+a, img {
+    -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+}
+html, body {
+    -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
+    user-select: none;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+header{
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	background: #91D4DA;
+	color: #FFFEFE;
+	text-align: center;
+	 font-size: 18px;
+}
+header a{
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #FFFFFF;
+    padding-left: 20px;
+}
+nav{
+	background: #FFFFFF;
+	display: flex;
+}
+
+nav a{
+    color: #656565;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    line-height: 50px;
+}
+/*实现图片铺满盒子*/
+.banner{
+	background: #FFFFFF;
+}
+.banner img{
+	width: 100%;
+}
+.tag{
+	background: #FFFFFF;
+	padding-bottom: 10px;
+}
+.tag ul{
+	width: 100%;
+	display: flex;
+}
+.tag ul li{
+	display: inline-block;
+	flex: 1;
+	text-align: center;
+}
+.tag ul li img{
+	width: 40px;
+    height: 40px;
+    margin: 15px 0;
+}
+.column{
+	background: #FFFFFF;
+	margin-top: 16px;
+	border-top:2px solid #DFDFDF ;
+}
+.column ul{
+	width: 100%;
+	display: flex;
+}
+.column ul li{
+	text-align: center;
+	flex: 1;
+}
+
+section{
+	background: #FFFFFF;
+	margin-top: 15px;
+}
+section h1{
+	font-weight: normal;
+    color: #646464;
+    line-height: 50px;
+    padding-left: 20px;
+}
+section .content1,section .content2{
+	width: 90%;
+	margin: 0 auto;
+	padding: 15px 0;
+	overflow: hidden;
+}
+section .content1{
+	border-top: 2px solid #E6E6E6;
+}
+section .content1 img,section .content2 img{
+	width: 25%;
+	float: left;
+}
+section .content1 a,section .content2 a{
+	display: block;
+    float: right;
+    width: 34%;
+    line-height: 50px;
+    background: #F8F8F8;
+    text-align: center;
+    font-size: 18px;
+    color: #444444;
+    margin: 4px;
+}
+.article{
+	background: #FFFFFF;
+	margin: 15px 0;
+	min-height: 150px;
+    padding: 10px;
+}
+.article img{
+	width: 200px;
+	height: 150px;
+	float: left;
+}
+.article a{
+	color: #000000;
+	padding-left: 10px;
+	
+}
+.article span{
+	padding-left: 10px;
+	color: #C6C6C6;
+}
+.article1 {
+	background: #FFFFFF;
+}
+.article1 .container{
+	width: 90%;
+	margin: 0 auto;
+}
+.article1 .container h3{
+	line-height: 40px;
+	padding-left: 10px;
+}
+.article1 .container p{
+	padding: 10px;
+	color: #C6C6C6;
+}
+.article1 ul{
+	width: 100%;
+	display: flex;
+}
+.article1 ul li{
+	margin: 4px;
+	flex: 1;
+}
+footer{
+	min-height: 80px;
+}
+
+
+
