@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#num_wrap li{
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				background: red;
+				margin: 10px;
+				color: white;
+				text-align: center;
+				line-height: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="num" />
+		<button id="left_in">左侧入</button>
+		<button id="right_in">右侧入</button>
+		<button id="left_out">左侧出</button>
+		<button id="right_out">右侧出</button>
+		<ul id="num_wrap">
+			
+		</ul>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var val=document.getElementById("num").value;
+//				为什放在外面会获取不到value;
+				var left_in=document.getElementById("left_in");
+				var right_in=document.getElementById("right_in");
+				var left_out=document.getElementById("left_out");
+				var right_out=document.getElementById("right_out");
+					right_in.onclick=function(){
+						var val=document.getElementById("num").value;
+						var li=document.createElement('li');
+						var ul=document.getElementById("num_wrap");
+						li.innerHTML=val;
+						ul.appendChild(li);
+					}
+					left_in.onclick=function(){
+						var val=document.getElementById("num").value;
+						var li=document.createElement('li');
+						var ul=document.getElementById("num_wrap");
+						li.innerHTML=val;
+						ul.insertBefore(li,ul.firstChild);
+					}
+					left_out.onclick=function(){
+						var val=document.getElementById("num").value;
+						var ul=document.getElementById("num_wrap");
+						ul.removeChild(ul.childNodes[0]);
+					}
+					right_out.onclick=function(){
+						var val=document.getElementById("num").value;
+						var ul=document.getElementById("num_wrap");
+						var lis=ul.getElementsByTagName('li');
+						ul.removeChild(ul.childNodes[lis.length-1]);
+					}
+					
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				margin: 100px;
+			}
+			textarea{
+				overflow: hidden;
+			}
+		</style>
+		<script type="text/javascript">
+			function keypress1(){
+				var text1=document.getElementById("name").value;
+				var len=15-text1.length;
+				if(len>0){
+					var show="你还可以输入"+len+"个字！";
+					document.getElementById("show").innerText=show;
+				}else{
+					var show="你还可以输入"+len+"个字！";
+					document.getElementById("show").innerText=show;
+					alert("输入满了！");
+				}
+			}
+			function keypress2(){
+				var comment=document.getElementById("comment").value;
+				var len;
+				if(comment.length>=30){
+					comment=comment.substr(0,30);
+					len=0;
+				}else{
+					len=30-comment.length;
+				}
+				var show1="你还可以输入"+len+"个字！";
+				document.getElementById("show1").innerText=show1;
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<h3>昵称:</h3>
+			<input type="text" id="name" maxlength="15" onkeyup="keypress1()" />
+			<font><label for="name" id="show">恋人SEO你输入12个字</label> </font>
+			<h3>评论内容:</h3>
+			<textarea rows="10" cols="10" id="comment" onkeyup="keypress2()">
+				
+			</textarea>
+			<font><label id="show1" for="comment">你还可以输入30个数字</label></font>
+		</div>
+	</body>
+</html>

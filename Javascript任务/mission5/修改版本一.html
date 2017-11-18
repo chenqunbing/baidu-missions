@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#num_wrap li{
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				background: red;
+				margin: 10px;
+				color: white;
+				text-align: center;
+				line-height: 80px;
+			}
+			#showChart{
+				visibility: hidden
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="num" />
+		<button id="left_in">左侧入</button>
+		<button id="right_in">右侧入</button>
+		<button id="left_out">左侧出</button>
+		<button id="right_out">右侧出</button>
+		<button id="chart">显示排序后的图表</button>
+		<ul id="num_wrap">
+			
+		</ul>
+		<canvas id="showChart" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			var num=document.getElementById("num");
+			var left_in=document.getElementById("left_in");
+			var right_in=document.getElementById("right_in");
+			var left_out=document.getElementById("left_out");
+			var right_out=document.getElementById("right_out");
+			var chart=document.getElementById("chart");
+			var num_wrap=document.getElementById("num_wrap");
+			
+			var numArr=[];
+			var data = {
+				labels : [],
+				datasets : [
+					{
+						fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						data : []
+					}
+				]
+			};
+			
+			function insert(direction){
+				if(num.value==""){
+					alert("请不要输入空值！");
+					num.focus();
+				}else if(isNaN(num.value)||parseInt(num.value)<10||parseInt(num.value)>100){
+					alert("请输入一个在合理范围内的格式正确的数字！");
+					num.focus();
+					return false;
+				}else if(direction=="left"){
+					if(numArr.length<10){
+						numArr.unshift(parseInt(num.value));
+						render();
+					}else{
+						alert("输入请不要超出10个！")
+					}
+				}else if(direction=="right"){
+					if(numArr.length<10){
+						numArr.push(parseInt(num.value));
+						render();
+					}else{
+						alert("输入请不要超出10个！")
+					}
+				}
+			}
+			function del(node,direciton){
+				if(numArr.length<=0){
+					alert("不存在可以删除的元素！");
+					return false;
+				}else if(direciton=="left"){
+					alert("你要删除的元素是："+num_wrap.firstChild.innerHTML+"!");
+					numArr.shift(num.value);
+					render();
+				}else if(direciton=="right"){
+					alert("你要删除的元素是："+num_wrap.lastChild.innerHTML+"!");
+					numArr.pop(num.value);
+					render();
+				}else{
+					alert("你要删除的元素是:"+node.innerHTML+"从左到右第："+parseInt(node.id.slice(3)+1)+"位");
+					numArr=numArr.filter((item,i)=>i!=node.id.slice(3));
+					render();
+				}
+			}
+			function render(){
+				var html="";
+				numArr.forEach((item,index)=>{
+					html+=`<li id=id_${index}>${item}</li>`;
+				});
+				num_wrap.innerHTML=html;
+			}
+			
+			left_in.onclick=function(){
+				insert("left");
+			}
+			right_in.onclick=function(){
+				insert("right");
+			}
+			left_out.onclick=function(){
+				del(-1,"left");
+			}
+			right_out.onclick=function(){
+				del(-1,"right");
+			}
+			num_wrap.onclick=function(){
+				del(event.target);
+			}
+			chart.onclick=function(){
+				document.getElementById("showChart").style.visibility="visible";
+				var set=new Set();
+				numArr.forEach(item=>{
+					set.add(item);
+				});
+				data.labels=[...set];
+				var dataLength=data.labels.length;
+				data.labels.sort((a,b)=>a-b);
+				
+				for(var j=0;j<dataLength;j++){
+					let count=0;
+					for(var i=0;i<numArr.length;i++){
+						if(data.labels[j]==numArr[i]){
+							count++;
+						}
+					}
+					data.datasets[0].data.push(count);
+				}
+				
+				renderChart();
+			}
+			function renderChart(){
+				var ctx=document.getElementById("showChart").getContext('2d');
+				var chart=new Chart(ctx);
+				chart.Bar(data);
+			}
+			
+		</script>
+	</body>
+</html>

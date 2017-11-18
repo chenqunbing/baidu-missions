@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#num_wrap li{
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				background: red;
+				margin: 10px;
+				color: white;
+				text-align: center;
+				line-height: 80px;
+			}
+			#showChart{
+				visibility: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="num" />
+		<button id="left_in">左侧入</button>
+		<button id="right_in">右侧入</button>
+		<button id="left_out">左侧出</button>
+		<button id="right_out">右侧出</button>
+		<button id="chart">显示排序后的图表</button>
+		<ul id="num_wrap">
+			
+		</ul>
+		<canvas id="showChart" width="400" height="400"></canvas>
+		<script type="text/javascript">
+			var num=document.getElementById("num");
+			var left_in=document.getElementById("left_in");
+			var right_in=document.getElementById("right_in");
+			var left_out=document.getElementById("left_out");
+			var right_out=document.getElementById("right_out");
+			var num_wrap=document.getElementById("num_wrap");
+			var chart=document.getElementById("chart");
+			var count=0;
+			//插入数字
+			function insert(direction){
+				if(num.value==""){
+					alert("请输入一个数字！");
+					num.focus();
+				}else if(isNaN(num.value)||num.value<10||num.value>100){
+					alert("请输入正确的格式和正确范围内的数字（10-100）！");
+					num.focus();
+					return false;
+				}else{
+					if(direction=="left"){
+						if(count<10){
+							var li=document.createElement('li');
+							li.innerHTML=num.value;
+							num_wrap.insertBefore(li,num_wrap.firstChild);
+							count++;
+						}else{
+							alert("只能输入60个数字，达到上限！");
+						}
+					}else if(direction=="right"){
+						if(count<10){
+							var li=document.createElement('li');
+							li.innerHTML=num.value;
+							num_wrap.appendChild(li);
+							count++;
+						}else{
+							alert("只能输入60个数字，达到上限！");
+						}
+					}
+				}
+			}
+			//删除数字
+			function del(node,direction){
+				if(num_wrap.childNodes.length<=0){
+					alert("不存在可以删除的元素！");
+					return false;
+				}else if(direction=="left"){
+					alert("要删除的数字："+num_wrap.firstChild.innerText+"!");
+					num_wrap.removeChild(num_wrap.firstChild);
+					count--;
+				}else if(direction=="right"){
+					alert("要删除的元素的数字："+num_wrap.lastChild.innerText+"!");
+					num_wrap.removeChild(num_wrap.lastChild);
+					count--;
+				}else {
+					alert("要删除的数字是："+num_wrap.removeChild(node).innerText+"!");
+					count--;
+					
+				}
+			}
+			left_in.onclick=function(){
+				insert("left");
+				console.log(num_wrap.getElementsByTagName('li').innerText);
+			}
+			right_in.onclick=function(){
+				insert("right");
+			}
+			left_out.onclick=function(){
+				del(-1,"left");
+			}
+			right_out.onclick=function(){
+				del(-1,"right");
+			}
+			num_wrap.onclick=function(){
+				del(event.target);
+			}
+			chart.onclick=function(){
+				document.getElementById("showChart").style.visibility='visible';
+			}
+			var lineData = {
+				labels : ["January","February","March","April","May","June","July"],
+//				labels:num_wrap.childeNodes.innetHTML;
+				datasets : [
+					{
+						fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						data : [65,59,90,81,56,55,40]
+//						data:[]
+					}
+				]
+			};
+			
+//			for(var i=0;i<num_wrap.childNodes.length;i++){
+//				lineData.datasets[0].data.push(num_wrap.childNodes.innerHTML);
+//			}
+			window.onload=function(){
+				var ctx=document.getElementById("showChart").getContext('2d');
+				var chart=new Chart(ctx);
+				chart.Bar(lineData);
+				
+			}
+			
+		</script>
+	</body>
+</html>

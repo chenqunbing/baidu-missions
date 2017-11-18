@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+	</head>
+	<body>
+		<canvas id="myChart" width="400" height="400"></canvas>
+		<script type="text/javascript">
+			var data = {
+				labels : ["January","February","March","April","May","June","July"],
+				 thisIds : [12,22,50,44,99,3,67],
+				datasets : [
+					{
+						fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						pointColor : "rgba(220,220,220,1)",
+						pointStrokeColor : "#fff",
+						data : [65,59,90,81,56,55,40]
+					},
+					{
+						fillColor : "rgba(151,187,205,0.5)",
+						strokeColor : "rgba(151,187,205,1)",
+						pointColor : "rgba(151,187,205,1)",
+						pointStrokeColor : "#fff",
+						data : [28,48,40,19,96,27,100]
+					}
+				]
+			};
+			
+			window.onload=function(){
+				var ctx=document.getElementById("myChart").getContext('2d');
+				var chart=new Chart(ctx);
+				chart.Line(data,{
+					  	// 网格颜色
+                    	scaleGridLineColor: "rgba(255,0,0,1)",
+                        // Y/X轴的颜色
+                        scaleLineColor: "rgba(0,0,0,.1)",
+                        // 文字大小
+                        scaleFontSize: 16,
+                        // 文字颜色
+                        scaleFontColor: "red",
+                        // 网格颜色
+                        scaleGridLineColor: "rgba(0,0,0,.05)",
+                        // 是否使用贝塞尔曲线? 即:线条是否弯曲
+                        // 是否执行动画
+                        animation: true,
+                        // 动画的时间
+                        animationSteps: 60,
+                        // 动画完成时的执行函数
+                        onAnimationComplete: function(){
+                            console.log("给x轴的lable对应的id：");
+                            console.log(data.thisIds);
+                        }
+				});
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function getOuterHtml(){
+				alert(document.getElementById("tr1").value);
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1">
+			<tr id="tr1">
+				<th>FirstName</th>
+				<th>LastName</th>
+			</tr>
+			<tr id="tr2">
+				<td>Mike</td>
+				<td>Linda</td>
+			</tr>
+		</table>
+		<br />
+		<input type="button" onclick="getOuterHtml()" value="alert innerHTML of table row" />
+		
+	</body>
+</html>

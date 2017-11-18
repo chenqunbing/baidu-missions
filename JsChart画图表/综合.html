@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!--<script type="text/javascript" src="js/canvasjs-1.8.1.min.js"></script>-->
+    <style>
+        .container{
+            text-align: center;
+        }
+        .container>h1{
+            color:#4444ff;
+            padding-bottom:20px;
+            border-bottom:1px dashed #555;
+        }
+        .container>h1>span{
+            font-size: 0.5em;
+            margin-left:30px;
+        }
+        .container>div.content{
+            margin:0 auto;
+            border:1px solid #ddd;
+            overflow: hidden;
+            width:80%;
+        }
+        .container>div.content>div{
+            box-sizing:border-box;
+            float: left;
+            margin:5px 0 0 5px;
+            height:300px;
+            width:32.65%;
+            border:1px solid #ddd;
+        }
+    </style>
+    <title>chartjs v1.8.1 案例 v1.8.1</title>
+</head>
+<body>
+<div class="container">
+    <h1>chartjs v1.8.1 案例<span>----类型：type "column" to "bar", "area", "line" or "pie"</span></h1>
+    <div class="content">
+        <div id="column"></div>
+        <div id="bar"></div>
+        <div id="area"></div>
+        <div id="line"></div>
+        <div id="pie"></div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            function draw(elem,type){
+                var data={
+                    title:{
+                        text: "第21周运动情况"
+                    },
+                    data: [//array of dataSeries
+                        { //dataSeries object
+                            /*** Change type "column" to "bar", "area", "line" or "pie"***/
+                            type: type,
+                            dataPoints: [
+                                { label: "5月23日", y: 8600 },
+                                { label: "5月24日", y: 12367 },
+                                { label: "5月25日", y: 9003 },
+                                { label: "5月26日", y: 8527 },
+                                { label: "5月27日", y: 10878 },
+                                { label: "5月28日", y: 19773 }
+                            ]
+                        }
+                    ]
+                }
+                new CanvasJS.Chart(elem, data).render();
+            }
+            draw("column","column");
+            draw("bar","bar");
+            draw("area","area");
+            draw("line","line");
+            draw("pie","pie");
+        }
+    </script>
+</div>
+</body>
+</html>

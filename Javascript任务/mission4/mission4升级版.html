@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#num_wrap li{
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				background: red;
+				margin: 10px;
+				color: white;
+				text-align: center;
+				line-height: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="num" />
+		<button id="left_in">左侧入</button>
+		<button id="right_in">右侧入</button>
+		<button id="left_out">左侧出</button>
+		<button id="right_out">右侧出</button>
+		<ul id="num_wrap">
+			
+		</ul>
+		<script type="text/javascript">
+			var num=document.getElementById("num");
+			var left_in=document.getElementById("left_in");
+			var right_in=document.getElementById("right_in");
+			var left_out=document.getElementById("left_out");
+			var right_out=document.getElementById("right_out");
+			var num_wrap=document.getElementById("num_wrap");
+			
+			//插入数字
+			function insert(direction){
+				if(num.value==""){
+					alert("请输入一个数字！");
+					num.focus();
+				}else if(isNaN(num.value)){
+					alert("请输入正确的格式！");
+					num.focus();
+					return false;
+				}else{
+					if(direction=="left"){
+						var li=document.createElement('li');
+						li.innerHTML=num.value;
+						num_wrap.insertBefore(li,num_wrap.firstChild);
+					}else if(direction=="right"){
+						var li=document.createElement('li');
+						li.innerHTML=num.value;
+						num_wrap.appendChild(li);
+					}
+				}
+			}
+			//删除数字
+			function del(node,direction){
+				if(num_wrap.childNodes.length<=0){
+					alert("不存在可以删除的元素！");
+					return false;
+				}else if(direction=="left"){
+					alert("要删除的数字："+num_wrap.firstChild.innerText+"!");
+					num_wrap.removeChild(num_wrap.firstChild);
+				}else if(direction=="right"){
+					alert("要删除的元素的数字："+num_wrap.lastChild.innerText+"!");
+					num_wrap.removeChild(num_wrap.lastChild);
+				}else {
+					alert("要删除的数字是："+num_wrap.removeChild(node).innerText+"!");
+				}
+			}
+			
+			left_in.onclick=function(){
+				insert("left");
+			}
+			right_in.onclick=function(){
+				insert("right");
+			}
+			left_out.onclick=function(){
+				del(-1,"left");
+			}
+			right_out.onclick=function(){
+				del(-1,"right");
+			}
+			num_wrap.onclick=function(){
+				del(event.target);
+			}
+			
+			
+		</script>
+	</body>
+</html>

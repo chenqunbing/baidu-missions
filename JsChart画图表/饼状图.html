@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+	</head>
+	<body>
+		<!--创建一个canvas元素，给定id，也可以指定宽和高-->
+		<canvas id="myChart" width="400" height="400"></canvas>
+		<script type="text/javascript">
+//			用dom方法获得canvas
+			var canvas=document.getElementById("myChart");
+//			获得2d元素ctx
+			var ctx=canvas.getContext('2d');
+//			初始化数据 data
+			var data=[
+				{
+					value:30,
+					color:"lightgreen",
+					highlight:"green",
+					label:"大白菜"
+				},
+				{
+					value:50,
+					color:"#46BFBD",
+					highlight:"#5AD3D1",
+					label:"小白菜"
+				},
+				{
+					value:60,
+					color:"#FDB45C",
+					highlight:"#FFC870",
+					label:"洋白菜"
+				},
+				{
+					value:40,
+					color:"#afB45C",
+					highlight:"#FabC870",
+					label:"娃娃菜"
+				},
+				{
+					value:40,
+					color:"#949FB1",
+					highlight:"#f00",
+					label:"圆白菜"
+				}
+			];
+//			基于画布对象ctx,创建Chart对象
+			var chart=new Chart(ctx);
+//			基于初始化数据data,通过Chart对象调用图表方法
+			chart.Pie(data);
+		</script>
+	</body>
+</html>

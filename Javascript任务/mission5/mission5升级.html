@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#num_wrap li{
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				background: red;
+				margin: 10px;
+				color: white;
+				text-align: center;
+				line-height: 80px;
+			}
+			#showChart{
+				visibility: hidden
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="num" />
+		<button id="left_in">左侧入</button>
+		<button id="right_in">右侧入</button>
+		<button id="left_out">左侧出</button>
+		<button id="right_out">右侧出</button>
+		<button id="chart">显示排序后的图表</button>
+		<ul id="num_wrap">
+			
+		</ul>
+		<canvas id="showChart" width="400" height="400"></canvas>
+		<script type="text/javascript">
+			var num=document.getElementById("num");
+			var left_in=document.getElementById("left_in");
+			var right_in=document.getElementById("right_in");
+			var left_out=document.getElementById("left_out");
+			var right_out=document.getElementById("right_out");
+			var num_wrap=document.getElementById("num_wrap");
+			var chart=document.getElementById("chart");
+			// var count=0;
+			var numArr = [];
+
+			var data = {
+				labels : [],
+				datasets : [
+					{
+						fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						data : []
+					}
+				]
+			};
+
+			//插入数字
+			function insert(direction){
+				if(num.value==""){
+					alert("请输入一个数字！");
+					num.focus();
+				}else if(isNaN(num.value)||num.value<10||num.value>100){
+					alert("请输入正确的格式和正确范围内的数字（10-100）！");
+					num.focus();
+					return false;
+				}else{
+					if(direction=="left"){
+						if(numArr.length<10){
+							// var li=document.createElement('li');
+							// li.innerHTML=num.value;
+							// num_wrap.insertBefore(li,num_wrap.firstChild);
+							// count++;
+							numArr.unshift(parseInt(num.value))
+							render()
+						}else{
+							alert("只能输入10个数字，达到上限！");
+						}
+					}else if(direction=="right"){
+						if(numArr.length<10){
+							// var li=document.createElement('li');
+							// li.innerHTML=num.value;
+							// num_wrap.appendChild(li);
+							// count++;
+							numArr.push(parseInt(num.value))
+							render()
+						}else{
+							alert("只能输入10个数字，达到上限！");
+						}
+					}
+				}
+			}
+			//删除数字
+			function del(node,direction){
+				if(num_wrap.childNodes.length<=0){
+					alert("不存在可以删除的元素！");
+					return false;
+				}else if(direction=="left"){
+					alert("要删除的数字："+num_wrap.firstChild.innerText+"!");
+					// num_wrap.removeChild(num_wrap.firstChild);
+					// count--;
+					numArr.shift(parseInt(num.value))
+					render()
+				}else if(direction=="right"){
+					alert("要删除的元素的数字："+num_wrap.lastChild.innerText+"!");
+					// num_wrap.removeChild(num_wrap.lastChild);
+					// count--;
+					numArr.pop(parseInt(num.value))
+					render()
+				}else {
+					// alert("要删除的数字是："+num_wrap.removeChild(node).innerText+"!");
+					// count--;
+					console.log(node.innerHTML);
+					console.log(numArr);
+					alert("要删除的数字是："+node.innerHTML+"!"+"从左到右数排在第"+(parseInt(node.id.slice(3))+1)+"位");
+					numArr = numArr.filter((item,i)=>i!=node.id.slice(3));
+					console.log(numArr);
+//					var filter=function(item,i){
+//						return i!=node.id.silce(3);
+//					}
+					render()
+				}
+			}
+			//渲染ul
+			function render(){
+				var html = "";
+				numArr.forEach((item,index)=>{
+					html+=`<li id=id_${index}>${item}</li>`
+				})
+				num_wrap.innerHTML=html
+			}
+
+			left_in.onclick=function(){
+				insert("left");
+				// console.log(num_wrap.getElementsByTagName('li').innerText);
+			}
+			right_in.onclick=function(){
+				insert("right");
+			}
+			left_out.onclick=function(){
+				del(-1,"left");
+			}
+			right_out.onclick=function(){
+				del(-1,"right");
+			}
+			num_wrap.onclick=function(){
+				// console.log(event.target)
+				del(event.target);
+			}
+			chart.onclick=function(){
+				// document.getElementById("showChart").style.display='block';
+				document.getElementById("showChart").style.visibility="visible";
+				//先处理数据
+				//用set 去重
+				var set = new Set()
+				numArr.forEach(item=>{
+					set.add(item)
+				})
+				data.labels = [...set]
+				console.log(data.labels)
+				var dataLeng = data.labels.length
+				//排序
+				data.labels.sort((a,b)=>a-b)
+				//计数
+				for(let j=0;j<dataLeng;j++){
+					let count =0
+					for(let i =0;i<numArr.length;i++){
+						if(data.labels[j]===numArr[i]){
+							count++
+						}
+					}
+					data.datasets[0].data.push(count)
+				}
+				console.log(data)
+				renderChart()
+			}
+			
+			window.onload=renderChart();
+			
+			function renderChart(){
+				var ctx=document.getElementById("showChart").getContext('2d');
+				var chart=new Chart(ctx);
+				chart.Bar(data);
+			}
+			
+		</script>
+	</body>
+</html>
