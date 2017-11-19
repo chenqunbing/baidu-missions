@@ -1,0 +1,109 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	padding: 20px;
+}
+ul li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+
+#wrapper{
+	width: 650px;
+	height: 406px;
+	position: relative;
+	border: 3px solid #333333;
+	overflow: hidden;
+}
+#banner{
+	height: 100%;
+}
+#banner .list{
+	position: absolute;
+	width: 3250px;
+	height: 406px;
+}
+#banner .list li{
+	float: left;
+	width: 650px;
+	height: 406px;
+}
+.arrow{
+	display: block;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 180px;
+	background-color: RGBA(0, 0, 0, .3);
+	color: white;
+	font-size: 32px;
+	line-height: 40px;
+	text-align: center;
+}
+#prev{
+	left: 20px;
+}
+#next{
+	right: 20px;
+}
+#next:hover,#prev:hover{
+	font-weight: bold;
+}
+.bg{
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: #FFFFFF;
+    height: 40px;
+    background: gray;
+    opacity: 0.5;
+	
+}
+.infoLis{
+	position: absolute;
+	bottom: 0;
+	width:250px ;
+	height: 40px;
+	overflow: hidden;
+}
+.infoLis li{
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 250px;
+	overflow: hidden;
+	line-height: 40px;
+	margin-left: 20px;
+	visibility: hidden;
+}
+.infoLis li.infoOn{
+	visibility: visible;
+}
+
+.indexList{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.indexList li{
+	display: inline-block;
+    width: 15px;
+    height: 30px;
+    line-height: 30px;
+    color: #000000;
+    background-color: lightgray;
+    border: 1px solid #000000;
+    margin-left: 5px;
+    text-align: center;
+    cursor: pointer;
+
+}
+.indexList li.indexOn{
+	background-color: orange;
+}
+
