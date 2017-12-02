@@ -1,0 +1,31 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+#demo-marquee{
+	width: 400px;
+	margin: 40px auto;
+	overflow: hidden;
+}
+#demo-marquee ul{
+	width: 800px;
+	animation: move 6s infinite linear;
+	
+}
+#demo-marquee ul li{
+	float: left;
+}
+#demo-marquee ul:hover{
+	animation-play-state: paused;
+}
+@keyframes move{
+	from{
+		transform: translateX(0px);
+	}
+	to{
+		transform: translateX(-180px);
+	}
+}

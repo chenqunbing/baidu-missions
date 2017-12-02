@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--http://www.jianshu.com/p/f85622a244ae-->
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.face{
+				width: 600px;
+				height:400px ;
+				position: relative;
+				margin: 0 auto;
+				background-color: pink;
+			}
+			#playground{
+				width: 450px;
+				height: 400px;
+				float: left;
+			}
+			.menu{
+				width: 150px;
+				height: 400px;
+				background: blue;
+				float: left;
+			}
+			#snake{
+				width: 20px;
+				height: 20px;
+				background: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#food{
+				width: 20px;
+				height: 20px;
+				background: blue;
+				position: absolute;
+			}
+			.body{
+				width: 20px;
+				height: 20px;
+				background: green;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#score{
+				font-size: 32px;
+				font-weight: bold;
+				color: red;
+			}
+			.menu div{
+				font-size: 20px;
+				font-weight: bold;
+			}
+		</style>
+		<script src="new_file.js"></script>
+	</head>
+	<body>
+		<div class="face">
+			<div id="playground">
+				<div id="food"></div>
+				<div id="snake"></div>
+			</div>
+			<div class="menu">
+				<div>得分<span id="score"></span></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul li{
+				list-style: none;
+				width: 200px;
+				height: 100px;
+				background: green;
+				margin: 20px;
+				filter: alpha(opacity:30);
+				opacity: 0.3;
+				border: 2px solid #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li id="testLi"></li>
+		</ul>
+		
+	</body>
+	<script type="text/javascript">
+			window.onload=function(){
+				var testLi=document.getElementById("testLi");
+				testLi.onmouseover=function(){
+					playFun(testLi,400,'width',function(){
+						playFun(testLi,400,'height',function(){
+							playFun(testLi,100,'opacity');
+						});
+					});
+				};
+				testLi.onmouseout=function(){
+					playFun(testLi,30,'opacity',function(){
+						playFun(testLi,100,'height',function(){
+							playFun(testLi,200,'width');
+						});
+					});
+				}
+				
+				function playFun(obj,itarget,attr,fn){
+					clearInterval(obj.timer);	
+					obj.timer=setInterval(function(){
+						var getValue=0;
+						if(attr=='opacity'){
+							getValue=Math.round(parseFloat(getSty(obj,attr))*100);
+						}else{
+							getValue=parseInt(getSty(obj,attr));
+						}
+						var speed = (itarget - getValue)/10;
+						speed = speed>0?Math.ceil(speed):Math.floor(speed);
+						
+						if(getValue==itarget){
+							clearInterval(obj.timer);
+							if(fn){
+								fn();
+							}
+						}else{
+							if(attr=='opacity'){
+								getValue+=speed;
+								obj.style['filter']='alpha(opacity:'+getValue+')';
+								obj.style['opacity']=getValue/100;
+							}else{
+								obj.style[attr]=getValue+speed+'px';
+							}
+						}
+						
+					},30);
+				}
+				function getSty(ele,attr){ 
+					if(ele.currentStyle){ //兼容IE浏览器
+						return ele.currentStyle[attr];
+					}else{  //兼容firefox浏览器
+						return getComputedStyle(ele,false)[attr];
+					}
+				}
+				
+				
+			}
+		</script>
+</html>

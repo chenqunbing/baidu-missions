@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul li{
+				list-style: none;
+				width: 200px;
+				height: 100px;
+				background: green;
+				margin: 20px;
+				filter: alpha(opacity:30);
+				opacity: 0.3;
+				border: 2px solid #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li id="testLi"></li>
+		</ul>
+		
+	</body>
+	<script type="text/javascript">
+			window.onload=function(){
+				var testLi=document.getElementById("testLi");
+				testLi.onmouseover=function(){
+					startMove(testLi,{width:400,height:400,opacity:100});
+					
+				};
+				testLi.onmouseout=function(){
+					startMove(testLi,{width:200,height:100,opacity:30});
+				}
+				
+				function startMove(obj,json){
+					clearInterval(obj.timer);	
+					obj.timer=setInterval(function(){
+						var getValue=0;
+						for(attr in json){
+							if(attr=='opacity'){
+								getValue=Math.round(parseFloat(getSty(obj,attr))*100);
+							}else{
+								getValue=parseInt(getSty(obj,attr));
+							}
+							var speed = (json[attr] - getValue)/10;
+							speed = speed>0?Math.ceil(speed):Math.floor(speed);
+							
+							if(getValue==json[attr]){
+								clearInterval(obj.timer);
+							}else{
+								if(attr=='opacity'){
+									getValue+=speed;
+									obj.style['filter']='alpha(opacity:'+getValue+')';
+									obj.style['opacity']=getValue/100;
+								}else{
+									obj.style[attr]=getValue+speed+'px';
+								}
+							}
+						}
+					},30);
+				}
+				function getSty(ele,attr){ 
+					if(ele.currentStyle){ //兼容IE浏览器
+						return ele.currentStyle[attr];
+					}else{  //兼容firefox浏览器
+						return getComputedStyle(ele,false)[attr];
+					}
+				}
+				
+				
+			}
+		</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				filter: alpha(opacity=30); //这是支持IE的格式
+				opacity: 0.3;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv=document.getElementById("div1");
+				oDiv.onmouseover=function(){
+					startmove(100);
+				}
+				oDiv.onmouseleave=function(){
+					startmove(30);
+				}
+				function startmove(iTarget){
+					var oDiv=document.getElementById("div1");
+					var timer=null;
+					var alpha=30;
+					var speed=0;
+					if(iTarget>alpha){
+						speed=10;
+					}else if(iTarget<alpha){
+						speed=-10;
+					}
+					timer=setInterval(function(){
+						if(iTarget==alpha){
+							clearInterval(timer);
+						}else{
+							alpha+=speed;
+							oDiv.style.filter='alpha(opacity='+alpha+')';
+							oDiv.style.opacity=alpha/100;
+						}
+						console.log(alpha)
+					},3000)
+				}
+			}
+		</script>
+	</body>
+</html>

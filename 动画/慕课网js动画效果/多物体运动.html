@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul li{
+				list-style: none;
+				width: 200px;
+				height: 200px;
+				background: yellow;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			window.onload=function(){
+				var lis=document.getElementsByTagName('li');
+				for(var i=0;i<lis.length;i++){
+					lis[i].onmouseover=function(){
+						startmove(this,400);
+					}
+					lis[i].onmouseleave=function(){
+						startmove(this,200);
+					}
+				}
+				var timer=null;
+				function startmove(obj,iTarget){
+					timer=setInterval(function(){
+						var speed=0;
+						if(obj.offsetWidth>iTarget){
+							speed=-10;
+						}else{
+							speed=10;
+						}
+						if(obj.style.width==iTarget){
+							clearInterval(timer);
+						}else{
+							obj.style.width=obj.offsetWidth+speed+'px';
+						}
+						
+					},30);
+				}
+				
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>

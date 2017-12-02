@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#rabbit{
+				width: 102px;
+				height: 75px;
+				margin:10px;
+				background: url(2.png) no-repeat;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var rabbit=document.getElementById("rabbit");
+				var count=0;
+				var counts=0;
+				var times=1;
+				setInterval(function(){
+					rabbit.style.backgroundPosition=(-120*count)+'px '+counts+'px';
+					count++;
+					if(count>=6){
+						count=0;
+						counts=-80*times;
+						times++;
+						if(times>=3){
+							times=0;
+						}
+					}
+				},600);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="rabbit"></div>
+	</body>
+</html>

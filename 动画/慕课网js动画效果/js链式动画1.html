@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+ <html>
+ 	<head>
+ 		<meta charset="utf-8">
+ 		<style type="text/css">
+ 		*{
+ 			padding:0;
+ 			margin:0;
+ 		}
+ 		ul li{
+ 			list-style:none;
+ 			width:200px;
+ 			height:100px;
+ 			background:green;
+ 			margin:20px;
+ 			border:2px #ccc solid;
+ 			filter:alpha(opacity:30);
+ 			opacity:0.3;
+ 		}
+ 		</style>
+ 		<script type="text/javascript">
+ 			window.onload = function(){
+ 				var testLi = document.getElementById("testLi");
+ 				testLi.onmouseover = function(){
+ 					playFun(testLi, 300, "height", function(){//回调
+ 						playFun(testLi, 400, "width", function(){//回调
+ 							playFun(testLi, 100, "opacity");
+ 						});
+ 					});
+ 				};
+ 				testLi.onmouseout = function(){
+ 					playFun(testLi, 30, "opacity", function(){//回调
+ 						playFun(testLi, 200, "width", function(){//回调
+ 							playFun(testLi, 100, "height");
+ 						});
+ 					});
+ 				}
+
+ 				function playFun(obj,itarget,attr,fn){//fn——回调函数
+					clearInterval(obj.timer);
+					obj.timer = setInterval(function(){
+						var getValue = 0;
+						if(attr == "opacity"){
+
+							//parseFloat返回小数值
+							//由于计算机存储小数有误差，采用Math.round()四舍五入得整数
+							getValue = Math.round(parseFloat(getStle(obj,attr))*100);
+						}else{
+							getValue = parseInt(getStle(obj,attr));
+						}
+						
+						var speed = (itarget - getValue)/10;
+						speed = speed>0?Math.ceil(speed):Math.floor(speed);
+						
+						//判断运动是否结束
+						if(getValue == itarget){
+							clearInterval(obj.timer);
+							if(fn){//动画结束后判断是否调用回调函数，存在即执行
+								fn();
+							}
+						}else{
+							//obj.style[attr]，采用中括号传参
+							if(attr == "opacity"){
+								getValue += speed;
+								obj.style["filter"] = "alpha(opacity:"+ getValue +")";
+								obj.style["opacity"] = getValue/100;
+							}else{
+								obj.style[attr] = getValue + speed + "px";
+							}
+							
+						}
+					},50);
+				}
+
+				//获取属性值
+				function getStle(ele,attr){ 
+					if(ele.currentStyle){ //兼容IE浏览器
+						return ele.currentStyle[attr];
+					}else{  //兼容firefox浏览器
+						return getComputedStyle(ele,false)[attr];
+					}
+				}
+ 			}
+ 		</script>
+ 	</head>
+ 	<body>
+ 		<ul>
+ 			<li id="testLi"></li>
+ 		</ul>
+ 	</body>
+ </html>

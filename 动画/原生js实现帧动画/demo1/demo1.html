@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#demo{
+				width:320px;
+				height:378px;
+				background: url(1.png) no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<script type="text/javascript">
+			var demo=document.getElementById("demo");
+			var count=0;
+			var counts=0;
+			var tsid=1;
+			setInterval(function(){
+				demo.style.backgroundPosition=(-320*count)+'px '+counts+'px';
+				count++;
+				if(count>=7){
+					count=0;
+					counts=-430*tsid;
+					tsid++;
+					if(tsid>=6){
+						tsid=0;
+					}
+				}
+			},800);
+		</script>
+	</body>
+</html>
